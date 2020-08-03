@@ -1,0 +1,117 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="main">
+        <div class="employes" id="employes">
+            <div class="search-container">
+                <input class="search-input"/>
+                <button class="search-button">Cari</button>
+            </div>
+
+     <div class="screen" >
+                <video id="screen12" src="http://user:User8888@36.94.6.211:554/Streaming/channels/1/httppreview"></video>
+         </div>
+        @foreach (var item in Model.Employees)
+        {
+            <div class="employe" id="employee" >
+                <div class="employe-photo">
+                    <img src="@item.Photo">
+                </div>
+                <div class="employe-content">
+                    <div class="inputPunishment">
+                        <textarea></textarea>
+                          <div class="save-action">
+                               <input  type="radio">Mudah
+                           <input  type="radio">Sedang
+                           <input  type="radio">Tinggi
+                            <button class="btn btn-success">Submit</button>
+                          </div>
+                    </div>
+                    <div class="employe-data">
+                            <div class="form-data">
+                        <div class="content-label">Name</div>
+                        <div class="content-value">@item.Name </div>
+                    </div>
+                     <div class="form-data">
+                        <div class="content-label">Job</div>
+                        <div class="content-value">@item.Job </div>
+                    </div>
+                     <div class="form-data">
+                        <div class="content-label">Sub Company</div>
+                        <div class="content-value">@item.Company </div>
+                    </div>
+                    </div>
+                   
+                </div>
+            </div>
+        }
+
+
+        </div>
+    <div class="main-left">
+        <canvas id="canvas">Paste Here</canvas>
+          <div class="btncapturemain">
+              <button  class="btn btn btn-outline-warning" onpaste="pasteAction" onclick="saveAction()">Click Here / Ctrl + V</button>
+        </div>
+       
+    </div>
+
+  
+</div>
+
+
+
+<script>
+   
+
+
+    /*
+
+      <div class="main-right">
+         <div class="screen" >
+                <video id="screen12" src="http://user:User8888@36.94.6.211:554/Streaming/channels/1/httppreview"></video>
+         </div>
+
+        @foreach (var item in Model.screens)
+        {
+            <div class="screen" >
+                <video id="screen1"></video>
+            </div>
+        }
+    </div>
+
+    
+        const connection = new signalR.HubConnectionBuilder()
+        .withUrl("/screenHub")
+        .configureLogging(signalR.LogLevel.Information)
+        .build();
+
+    async function start() {
+        try {
+            await connection.start().then(x => {
+                connection.invoke("screenData", "Test Saja");
+
+            });
+            console.log("connected");
+            connection.on("recieveScreenData", screen => {
+                var screen1 = document.getElementById("screen1")
+                screen1.innerHTML = screen;
+
+            })
+        } catch (err) {
+            console.log(err);
+            setTimeout(() => start(), 5000);
+        }
+    };
+
+    connection.onclose(async () => {
+        await start();
+    });
+
+    // Start the connection.
+    start();*/
+</script>
+
